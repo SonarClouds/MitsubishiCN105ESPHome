@@ -177,7 +177,7 @@ void CN105Climate::getPowerFromResponsePacket() {
 
     heatpumpSettings receivedSettings{};
     receivedSettings.stage = lookupByteMapValue(STAGE_MAP, STAGE, 7, data[4], "current stage for delivery");
-    receivedSettings.sub_mode = lookupByteMapValue(SUB_MODE_MAP, SUB_MODE, 4, data[3], "submode");
+    receivedSettings.sub_mode = lookupByteMapValue(SUB_MODE_MAP, SUB_MODE, 8, data[3], "submode");
     receivedSettings.auto_sub_mode = lookupByteMapValue(AUTO_SUB_MODE_MAP, AUTO_SUB_MODE, 4, data[5], "auto mode sub mode");
 
     ESP_LOGD("Decoder", "[Stage : %s]", receivedSettings.stage);
